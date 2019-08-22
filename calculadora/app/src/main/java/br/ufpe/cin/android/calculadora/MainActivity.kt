@@ -3,6 +3,7 @@ package br.ufpe.cin.android.calculadora
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,14 @@ class MainActivity : AppCompatActivity() {
         btn_Multiply.setOnClickListener { AddToCalcExpression(btn_Multiply.text.toString()) }
         btn_Divide.setOnClickListener { AddToCalcExpression(btn_Divide.text.toString()) }
         btn_Dot.setOnClickListener { AddToCalcExpression(btn_Dot.text.toString()) }
-        btn_Equal.setOnClickListener { text_calc.setText(eval(text_info.text.toString()).toString()) }
+        btn_Equal.setOnClickListener {
+            try{
+                text_calc.setText(eval(text_info.text.toString()).toString())
+            } catch (e: Exception){
+                Toast.makeText(this, "Ih rapaz, deu ruim tua conta.", Toast.LENGTH_LONG).show()
+                cleanExpression()
+            }
+        }
         btn_Add.setOnClickListener { AddToCalcExpression(btn_Add.text.toString()) }
         btn_LParen.setOnClickListener { AddToCalcExpression(btn_LParen.text.toString()) }
         btn_RParen.setOnClickListener { AddToCalcExpression(btn_RParen.text.toString()) }
