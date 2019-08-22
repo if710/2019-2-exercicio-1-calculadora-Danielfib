@@ -2,13 +2,65 @@ package br.ufpe.cin.android.calculadora
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btn_0.setOnClickListener { AddToCalcExpression(btn_0.text.toString()) }
+        btn_1.setOnClickListener { AddToCalcExpression(btn_1.text.toString()) }
+        btn_2.setOnClickListener { AddToCalcExpression(btn_2.text.toString()) }
+        btn_3.setOnClickListener { AddToCalcExpression(btn_3.text.toString()) }
+        btn_4.setOnClickListener { AddToCalcExpression(btn_4.text.toString()) }
+        btn_5.setOnClickListener { AddToCalcExpression(btn_5.text.toString()) }
+        btn_6.setOnClickListener { AddToCalcExpression(btn_6.text.toString()) }
+        btn_7.setOnClickListener { AddToCalcExpression(btn_7.text.toString()) }
+        btn_8.setOnClickListener { AddToCalcExpression(btn_8.text.toString()) }
+        btn_9.setOnClickListener { AddToCalcExpression(btn_9.text.toString()) }
+
+        btn_Subtract.setOnClickListener { AddToCalcExpression(btn_Subtract.text.toString()) }
+        btn_Multiply.setOnClickListener { AddToCalcExpression(btn_Multiply.text.toString()) }
+        btn_Divide.setOnClickListener { AddToCalcExpression(btn_Divide.text.toString()) }
+        btn_Dot.setOnClickListener { AddToCalcExpression(btn_Dot.text.toString()) }
+        btn_Equal.setOnClickListener { text_calc.setText(eval(text_info.text.toString()).toString()) }
+        btn_Add.setOnClickListener { AddToCalcExpression(btn_Add.text.toString()) }
+        btn_LParen.setOnClickListener { AddToCalcExpression(btn_LParen.text.toString()) }
+        btn_RParen.setOnClickListener { AddToCalcExpression(btn_RParen.text.toString()) }
+        btn_Power.setOnClickListener { AddToCalcExpression(btn_Power.text.toString()) }
+        btn_Clear.setOnClickListener {
+            cleanExpression()
+            cleanInfo()
+        }
     }
+
+//    val btn_1 = findViewById<Button>(R.id.btn_1)
+//    val btn_2 = findViewById<Button>(R.id.btn_2)
+//    val btn_3 = findViewById<Button>(R.id.btn_3)
+//    val btn_Subtract = findViewById<Button>(R.id.btn_Subtract)
+//
+//    val btn_4 = findViewById<Button>(R.id.btn_4)
+//    val btn_5 = findViewById<Button>(R.id.btn_5)
+//    val btn_6 = findViewById<Button>(R.id.btn_6)
+//    val btn_Multiply = findViewById<Button>(R.id.btn_Multiply)
+//
+//    val btn_7 = findViewById<Button>(R.id.btn_7)
+//    val btn_8 = findViewById<Button>(R.id.btn_8)
+//    val btn_9 = findViewById<Button>(R.id.btn_9)
+//    val btn_Divide = findViewById<Button>(R.id.btn_Divide)
+//
+//    val btn_Dot = findViewById<Button>(R.id.btn_Dot)
+//    val btn_0 = findViewById<Button>(R.id.btn_0)
+//    val btn_Equal = findViewById<Button>(R.id.btn_Equal)
+//    val btn_Add = findViewById<Button>(R.id.btn_Add)
+//
+//    val btn_LParen = findViewById<Button>(R.id.btn_LParen)
+//    val btn_RParen = findViewById<Button>(R.id.btn_RParen)
+//    val btn_Power = findViewById<Button>(R.id.btn_Power)
+//    val btn_Clear = findViewById<Button>(R.id.btn_Clear)
 
 
     //Como usar a função:
@@ -103,4 +155,11 @@ class MainActivity : AppCompatActivity() {
             }
         }.parse()
     }
+
+    fun AddToCalcExpression(toAdd: String){
+        text_info.text = text_info.text.toString() + toAdd;
+    }
+
+    fun cleanExpression(){text_info.text = ""}
+    fun cleanInfo(){text_calc.setText("")}
 }

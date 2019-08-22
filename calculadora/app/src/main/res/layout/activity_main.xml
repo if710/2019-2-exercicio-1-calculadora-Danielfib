@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_info"
+            android:layout_marginBottom="44dp"
             android:enabled="false"
             android:gravity="bottom"
             android:inputType="numberDecimal"
@@ -32,8 +33,8 @@
             android:maxLines="2"
             android:textSize="40sp"
             app:layout_constrainedHeight="false"
-            app:layout_constraintBottom_toBottomOf="@id/text_info"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintBottom_toTopOf="@+id/row789"
+            tools:layout_editor_absoluteX="32dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/row789"
